@@ -91,13 +91,13 @@ with tab_over:
             x = latest[latest.symbol == s].sort_values("expiry")
             fig.add_trace(go.Scatter(x=x["expiry"], y=x["px_g"], mode="lines+markers", name=s,
                                      line=dict(color=SYM_COLOR[s], width=2.5)))
-        st.plotly_chart(style(fig, 340), use_container_width=True)
+        st.plotly_chart(style(fig, 340), width="stretch")
     with right:
         st.subheader("Verdict")
         fx = {k: v["fixed_params"] for k, v in summ["pairs"].items()}
         rows = [dict(Pair=k, Trades=v.get("trades"), **{"Break-even cost": f"{v.get('breakeven_cost_scale')}x"})
                 for k, v in fx.items()]
-        st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
+        st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
         st.caption("Break-even cost = multiple of the assumed costs at which the strategy earns zero. "
                    "Below 1x means the edge does not survive costs.")
         st.info("No persistent edge survives costs in this sample. A rigorous null result is a valid outcome.")
@@ -124,7 +124,7 @@ with tab_alerts:
             (fired if abs(r.z) >= entry_z and exp > rt else watch).append(row)
     if fired:
         st.success(f"{len(fired)} signal(s) clear both the z threshold and the cost hurdle.")
-        st.dataframe(pd.DataFrame(fired), hide_index=True, use_container_width=True)
+        st.dataframe(pd.DataFrame(fired), hide_index=True, width="stretch")
     else:
         st.markdown(f"""<div class="quiet"><b>No meaningful signal.</b><br>Nothing today combines |z| ≥ {entry_z}
         with expected reversion above round-trip cost. Staying quiet is the point.</div>""", unsafe_allow_html=True)
@@ -134,7 +134,7 @@ with tab_alerts:
         w = pd.DataFrame(watch)
         w["abs_z"] = w["z"].abs()
         st.dataframe(w.sort_values("abs_z", ascending=False).drop(columns="abs_z").head(8),
-                     hide_index=True, use_container_width=True)
+                     hide_index=True, width="stretch")
     st.caption("Expected reversion comes from the 5-day post-signal study, measured from the next settlement, "
                "the earliest tradable price. Costs are modelled assumptions.")
 
@@ -156,7 +156,7 @@ with tab_spread:
     fig.add_hline(y=float(daily["mean"].mean()), line_dash="dash", line_color=SLATE,
                   annotation_text="long-run level", annotation_position="bottom right")
     fig.update_yaxes(title="spread (bps)")
-    st.plotly_chart(style(fig, 400), use_container_width=True)
+    st.plotly_chart(style(fig, 400), width="stretch")
     m1, m2, m3 = st.columns(3)
     m1.metric("Mean", f"{r.spread_bps.mean():.0f} bps")
     m2.metric("Std dev", f"{r.spread_bps.std():.0f} bps")
@@ -180,7 +180,7 @@ with tab_curve:
                                  line=dict(color=col, width=2.5, dash=dash)))
     fig.update_xaxes(title="days to expiry")
     fig.update_yaxes(title="₹/g @ 999")
-    st.plotly_chart(style(fig, 380), use_container_width=True)
+    st.plotly_chart(style(fig, 380), width="stretch")
 
     c = df[(df.symbol == sym) & (df.date == when) & (df.dte > 0)].sort_values("expiry").reset_index(drop=True)
     if len(c) >= 2:
@@ -189,7 +189,7 @@ with tab_curve:
         show = c[["expiry", "dte", "px_g", "carry_pct_ann", "volume_g", "oi_g"]].copy()
         show["expiry"] = show["expiry"].dt.date
         show.columns = ["Expiry", "DTE", "₹/g", "Carry to next (% ann.)", "Volume (g)", "OI (g)"]
-        st.dataframe(show.round(2), hide_index=True, use_container_width=True)
+        st.dataframe(show.round(2), hide_index=True, width="stretch")
         st.caption("Roll-down is mechanical: with an unchanged curve, a contract slides down toward spot as expiry "
                    "nears. Compare the two curves above by days-to-expiry to see what is genuine shape change "
                    "versus time passing.")
@@ -217,12 +217,12 @@ with tab_cal:
                                  showlegend=False, line=dict(color=WARN, width=10),
                                  hovertemplate=f"{y}<br>tender / expiry window<extra></extra>"))
     fig.add_vline(x=last, line_dash="dash", line_color=INK, annotation_text="today")
-    st.plotly_chart(style(fig, max(320, 26 * len(win) + 80)), use_container_width=True)
+    st.plotly_chart(style(fig, max(320, 26 * len(win) + 80)), width="stretch")
     st.caption("Grey: listed but thin. Coloured: liquid (≥10% of the contract's peak volume) until the exit guard. "
                "Red: last 6 days, where the strategy is always flat. Entries and exits are placed only in the coloured span.")
     exp = win.assign(first=win["first"].dt.date, liquid_from=win["liquid_from"].dt.date, expiry=win["expiry"].dt.date)
     st.dataframe(exp[["symbol", "expiry", "first", "liquid_from"]].rename(
-        columns={"first": "first seen", "liquid_from": "liquid from"}), hide_index=True, use_container_width=True)
+        columns={"first": "first seen", "liquid_from": "liquid from"}), hide_index=True, width="stretch")
 
 # ---------------------------------------------------------------- backtest
 with tab_bt:
@@ -232,7 +232,7 @@ with tab_bt:
     fig.add_trace(go.Scatter(x=cum.index, y=cum["gross"], name="gross", line=dict(color=SLATE, width=2, dash="dot")))
     fig.add_trace(go.Scatter(x=cum.index, y=cum["net"], name="net of costs", line=dict(color=GOLD, width=3)))
     fig.update_yaxes(title="cumulative ₹ (1,000 g per leg)")
-    st.plotly_chart(style(fig, 360), use_container_width=True)
+    st.plotly_chart(style(fig, 360), width="stretch")
     st.caption("Parameters for each quarter are chosen using only trades that had already closed, then applied "
                "out of sample. Quarters without a profitable history stay flat.")
 
@@ -247,7 +247,7 @@ with tab_bt:
     money = [c for c in tbl.columns if c not in ("Pair", "Trades", "Break-even")]
     tbl[money] = tbl[money].round(0)
     tbl["Break-even"] = tbl["Break-even"].round(2)
-    st.dataframe(tbl, hide_index=True, use_container_width=True)
+    st.dataframe(tbl, hide_index=True, width="stretch")
 
     st.subheader("Does a deviation revert, and is it worth the cost?")
     pair = st.selectbox("Pair", TRADABLE, key="bt_pair")
@@ -256,8 +256,8 @@ with tab_bt:
     fig.add_bar(x=d["z_bucket"], y=d["mean_reversion_bps"], name="mean reversion (bps)", marker_color=GOLD)
     fig.add_bar(x=d["z_bucket"], y=d["roundtrip_cost_bps"], name="round-trip cost (bps)", marker_color=SLATE)
     fig.update_layout(barmode="group")
-    st.plotly_chart(style(fig, 320), use_container_width=True)
-    st.dataframe(d, hide_index=True, use_container_width=True)
+    st.plotly_chart(style(fig, 320), width="stretch")
+    st.dataframe(d, hide_index=True, width="stretch")
     st.caption("Measured from the next settlement over 5 trading days. t-stats are clustered by date. "
                "Large-deviation cases for the GOLDTEN pairs sit mostly in January 2026, so they are largely one episode.")
 
@@ -265,4 +265,4 @@ with tab_bt:
         pick = st.selectbox("Pair", [k.replace("/", "_") for k in TRADABLE], key="tr_pair")
         f = ROOT / "results" / f"trades_{pick}.csv"
         st.dataframe(pd.read_csv(f) if f.exists() else pd.DataFrame({"note": ["No walk-forward trades for this pair."]}),
-                     hide_index=True, use_container_width=True)
+                     hide_index=True, width="stretch")

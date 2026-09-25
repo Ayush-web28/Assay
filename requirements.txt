@@ -3,6 +3,6 @@ pandas
 numpy
 pyarrow
 duckdb
-streamlit
+streamlit>=1.50
 plotly
 pytest
