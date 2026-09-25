@@ -1,0 +1,8 @@
+node_modules/
+render_out/
+__pycache__/
+*.pyc
+.pytest_cache/
+.claude/
+nohup.out
+*.log

@@ -1,0 +1,423 @@
+{
+  "data": {
+    "first": "2023-01-02",
+    "last": "2026-09-24",
+    "days": 958,
+    "contracts": 174
+  },
+  "assumptions": {
+    "grams_per_leg": 1000.0,
+    "warmup_months": 9
+  },
+  "pairs": {
+    "GOLDTEN/GOLDPETAL": {
+      "obs": 1928,
+      "spread_mean_bps": -96.3567,
+      "spread_sd_bps": 61.0541,
+      "first": "2025-03-31",
+      "first_test": "2025-12-31",
+      "diagnostic": [
+        {
+          "z_bucket": "1.5-2.0",
+          "n": 118,
+          "days": 63,
+          "mean_reversion_bps": 13.5,
+          "t_by_date": 1.19,
+          "median_bps": 8.1,
+          "roundtrip_cost_bps": 13.9,
+          "net_after_cost_bps": -0.4
+        },
+        {
+          "z_bucket": "2.0-3.0",
+          "n": 80,
+          "days": 39,
+          "mean_reversion_bps": 11.3,
+          "t_by_date": 0.76,
+          "median_bps": 16.1,
+          "roundtrip_cost_bps": 16.8,
+          "net_after_cost_bps": -5.5
+        },
+        {
+          "z_bucket": "3.0-inf",
+          "n": 59,
+          "days": 25,
+          "mean_reversion_bps": 64.2,
+          "t_by_date": 1.65,
+          "median_bps": 58.5,
+          "roundtrip_cost_bps": 19.3,
+          "net_after_cost_bps": 44.9
+        }
+      ],
+      "fixed_params": {
+        "trades": 21,
+        "hit_gross": 0.5714,
+        "gross": 1132800.0,
+        "cost_at_1x": 515270.3547,
+        "net_at": {
+          "0.0": 1132800.0,
+          "0.5": 875164.8226,
+          "1.0": 617529.6453,
+          "2.0": 102259.2905
+        },
+        "breakeven_cost_scale": 2.1985
+      },
+      "scenarios": {
+        "0.0": {
+          "gross": 1273500.0,
+          "cost": 0.0,
+          "net": 1273500.0,
+          "sharpe": 0.404,
+          "max_dd": -2407700.0,
+          "trades": 54.0,
+          "hit": 0.6667,
+          "avg_hold": 6.8889,
+          "net_per_trade": 18977.7778,
+          "gold_beta": -0.0925,
+          "gold_t": -1.5079,
+          "gold_r2": 0.012,
+          "quarters_traded": 4,
+          "quarters": 4
+        },
+        "0.5": {
+          "gross": -1939700.0,
+          "cost": 17052.5662,
+          "net": -1956752.5662,
+          "sharpe": -1.1899,
+          "max_dd": -2383192.256,
+          "trades": 20.0,
+          "hit": 0.15,
+          "avg_hold": 14.7,
+          "net_per_trade": -135981.6348,
+          "gold_beta": -0.0833,
+          "gold_t": -2.636,
+          "gold_r2": 0.0356,
+          "quarters_traded": 3,
+          "quarters": 4
+        },
+        "1.0": {
+          "gross": -1939700.0,
+          "cost": 34105.1324,
+          "net": -1973805.1324,
+          "sharpe": -1.192,
+          "max_dd": -2397284.5121,
+          "trades": 20.0,
+          "hit": 0.15,
+          "avg_hold": 14.7,
+          "net_per_trade": -147908.2696,
+          "gold_beta": -0.084,
+          "gold_t": -2.6374,
+          "gold_r2": 0.0357,
+          "quarters_traded": 3,
+          "quarters": 4
+        },
+        "2.0": {
+          "gross": -1939700.0,
+          "cost": 68210.2647,
+          "net": -2007910.2647,
+          "sharpe": -1.1961,
+          "max_dd": -2425469.0242,
+          "trades": 20.0,
+          "hit": 0.1,
+          "avg_hold": 14.7,
+          "net_per_trade": -171761.5391,
+          "gold_beta": -0.0852,
+          "gold_t": -2.64,
+          "gold_r2": 0.0357,
+          "quarters_traded": 3,
+          "quarters": 4
+        }
+      }
+    },
+    "GOLDGUINEA/GOLDPETAL": {
+      "obs": 4337,
+      "spread_mean_bps": 66.0087,
+      "spread_sd_bps": 102.9011,
+      "first": "2023-01-02",
+      "first_test": "2023-10-02",
+      "diagnostic": [
+        {
+          "z_bucket": "1.5-2.0",
+          "n": 365,
+          "days": 257,
+          "mean_reversion_bps": 5.2,
+          "t_by_date": 2.11,
+          "median_bps": 4.8,
+          "roundtrip_cost_bps": 36.5,
+          "net_after_cost_bps": -31.3
+        },
+        {
+          "z_bucket": "2.0-3.0",
+          "n": 236,
+          "days": 128,
+          "mean_reversion_bps": 7.7,
+          "t_by_date": 1.93,
+          "median_bps": 6.4,
+          "roundtrip_cost_bps": 47.2,
+          "net_after_cost_bps": -39.5
+        },
+        {
+          "z_bucket": "3.0-inf",
+          "n": 41,
+          "days": 30,
+          "mean_reversion_bps": 42.5,
+          "t_by_date": 3.45,
+          "median_bps": 23.1,
+          "roundtrip_cost_bps": 88.1,
+          "net_after_cost_bps": -45.6
+        }
+      ],
+      "fixed_params": {
+        "trades": 57,
+        "hit_gross": 0.5965,
+        "gross": 803500.0,
+        "cost_at_1x": 3957135.4988,
+        "net_at": {
+          "0.0": 803500.0,
+          "0.5": -1175067.7494,
+          "1.0": -3153635.4988,
+          "2.0": -7110770.9976
+        },
+        "breakeven_cost_scale": 0.2031
+      },
+      "scenarios": {
+        "0.0": {
+          "gross": 1405625.0,
+          "cost": 0.0,
+          "net": 1405625.0,
+          "sharpe": 0.7036,
+          "max_dd": -507875.0,
+          "trades": 64.0,
+          "hit": 0.625,
+          "avg_hold": 8.1719,
+          "net_per_trade": 21962.8906,
+          "gold_beta": -0.0117,
+          "gold_t": -1.3263,
+          "gold_r2": 0.0023,
+          "quarters_traded": 12,
+          "quarters": 12
+        },
+        "0.5": {
+          "gross": 878500.0,
+          "cost": 293547.531,
+          "net": 584952.469,
+          "sharpe": 0.3537,
+          "max_dd": -751911.0914,
+          "trades": 8.0,
+          "hit": 0.875,
+          "avg_hold": 16.0,
+          "net_per_trade": 73119.0586,
+          "gold_beta": 0.0053,
+          "gold_t": 0.725,
+          "gold_r2": 0.0007,
+          "quarters_traded": 6,
+          "quarters": 12
+        },
+        "1.0": {
+          "gross": 178000.0,
+          "cost": 290467.9848,
+          "net": -112467.9848,
+          "sharpe": -0.1762,
+          "max_dd": -213531.0258,
+          "trades": 4.0,
+          "hit": 0.25,
+          "avg_hold": 16.0,
+          "net_per_trade": -28116.9962,
+          "gold_beta": -0.0002,
+          "gold_t": -0.0812,
+          "gold_r2": 0.0,
+          "quarters_traded": 2,
+          "quarters": 12
+        },
+        "2.0": {
+          "gross": 0.0,
+          "cost": 0.0,
+          "net": 0.0,
+          "sharpe": null,
+          "max_dd": 0.0,
+          "trades": 0.0,
+          "hit": null,
+          "avg_hold": null,
+          "net_per_trade": null,
+          "gold_beta": 0.0,
+          "gold_t": null,
+          "gold_r2": null,
+          "quarters_traded": 0,
+          "quarters": 12
+        }
+      }
+    },
+    "GOLDTEN/GOLDGUINEA": {
+      "obs": 1928,
+      "spread_mean_bps": -88.1742,
+      "spread_sd_bps": 69.1584,
+      "first": "2025-03-31",
+      "first_test": "2025-12-31",
+      "diagnostic": [
+        {
+          "z_bucket": "1.5-2.0",
+          "n": 137,
+          "days": 78,
+          "mean_reversion_bps": 3.3,
+          "t_by_date": 0.75,
+          "median_bps": 1.9,
+          "roundtrip_cost_bps": 34.9,
+          "net_after_cost_bps": -31.6
+        },
+        {
+          "z_bucket": "2.0-3.0",
+          "n": 108,
+          "days": 51,
+          "mean_reversion_bps": 8.8,
+          "t_by_date": 0.38,
+          "median_bps": 25.8,
+          "roundtrip_cost_bps": 34.3,
+          "net_after_cost_bps": -25.5
+        },
+        {
+          "z_bucket": "3.0-inf",
+          "n": 84,
+          "days": 36,
+          "mean_reversion_bps": 79.1,
+          "t_by_date": 4.1,
+          "median_bps": 84.0,
+          "roundtrip_cost_bps": 43.7,
+          "net_after_cost_bps": 35.4
+        }
+      ],
+      "fixed_params": {
+        "trades": 20,
+        "hit_gross": 0.8,
+        "gross": 2801550.0,
+        "cost_at_1x": 1120943.9074,
+        "net_at": {
+          "0.0": 2801550.0,
+          "0.5": 2241078.0463,
+          "1.0": 1680606.0926,
+          "2.0": 559662.1852
+        },
+        "breakeven_cost_scale": 2.4993
+      },
+      "scenarios": {
+        "0.0": {
+          "gross": 3330025.0,
+          "cost": 0.0,
+          "net": 3330025.0,
+          "sharpe": 1.223,
+          "max_dd": -1568850.0,
+          "trades": 59.0,
+          "hit": 0.7119,
+          "avg_hold": 7.0169,
+          "net_per_trade": 51299.1525,
+          "gold_beta": -0.0802,
+          "gold_t": -1.514,
+          "gold_r2": 0.012,
+          "quarters_traded": 4,
+          "quarters": 4
+        },
+        "0.5": {
+          "gross": 4376450.0,
+          "cost": 317242.4445,
+          "net": 4059207.5555,
+          "sharpe": 2.0682,
+          "max_dd": -824476.54,
+          "trades": 45.0,
+          "hit": 0.6667,
+          "avg_hold": 7.8889,
+          "net_per_trade": 70127.764,
+          "gold_beta": 0.0319,
+          "gold_t": 0.8325,
+          "gold_r2": 0.0037,
+          "quarters_traded": 4,
+          "quarters": 4
+        },
+        "1.0": {
+          "gross": 0.0,
+          "cost": 0.0,
+          "net": 0.0,
+          "sharpe": null,
+          "max_dd": 0.0,
+          "trades": 0.0,
+          "hit": null,
+          "avg_hold": null,
+          "net_per_trade": null,
+          "gold_beta": 0.0,
+          "gold_t": null,
+          "gold_r2": null,
+          "quarters_traded": 2,
+          "quarters": 4
+        },
+        "2.0": {
+          "gross": 0.0,
+          "cost": 0.0,
+          "net": 0.0,
+          "sharpe": null,
+          "max_dd": 0.0,
+          "trades": 0.0,
+          "hit": null,
+          "avg_hold": null,
+          "net_per_trade": null,
+          "gold_beta": 0.0,
+          "gold_t": null,
+          "gold_r2": null,
+          "quarters_traded": 2,
+          "quarters": 4
+        }
+      }
+    }
+  },
+  "portfolio": {
+    "from": "2023-10-02",
+    "0.0": {
+      "gross": 5457075.0,
+      "cost": 0.0,
+      "net": 5457075.0,
+      "sharpe": 0.4649,
+      "max_dd": -3858750.0,
+      "trades": 177.0,
+      "hit": 0.6667,
+      "avg_hold": 7.3955,
+      "net_per_trade": 30830.9322,
+      "gold_beta": -0.1426,
+      "gold_t": -2.7667
+    },
+    "0.5": {
+      "gross": 2470475.0,
+      "cost": 1449405.8443,
+      "net": 1021069.1557,
+      "sharpe": 0.149,
+      "max_dd": -2848733.0988,
+      "trades": 73.0,
+      "hit": 0.5479,
+      "avg_hold": 10.6438,
+      "net_per_trade": 13987.2487,
+      "gold_beta": -0.0263,
+      "gold_t": -0.8715
+    },
+    "1.0": {
+      "gross": -2303100.0,
+      "cost": 767533.3758,
+      "net": -3070633.3758,
+      "sharpe": -0.8297,
+      "max_dd": -3126929.0779,
+      "trades": 24.0,
+      "hit": 0.1667,
+      "avg_hold": 14.9167,
+      "net_per_trade": -127943.0573,
+      "gold_beta": -0.0656,
+      "gold_t": -4.0584
+    },
+    "2.0": {
+      "gross": -2481100.0,
+      "cost": 954130.782,
+      "net": -3435230.782,
+      "sharpe": -0.9228,
+      "max_dd": -3445982.2693,
+      "trades": 20.0,
+      "hit": 0.1,
+      "avg_hold": 14.7,
+      "net_per_trade": -171761.5391,
+      "gold_beta": -0.0669,
+      "gold_t": -4.1169
+    }
+  }
+}

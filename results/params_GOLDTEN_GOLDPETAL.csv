@@ -1,0 +1,5 @@
+quarter,params,insample_net_rs
+2025Q4,"Params(entry_z=1.5, exit_z=0.0, window=120, max_hold=15, min_dte=10, exit_dte=6, min_obs=150)",156822.28627464923
+2026Q1,None,0.0
+2026Q2,"Params(entry_z=2.5, exit_z=0.5, window=120, max_hold=15, min_dte=10, exit_dte=6, min_obs=150)",2164491.105332369
+2026Q3,"Params(entry_z=2.5, exit_z=0.5, window=120, max_hold=15, min_dte=10, exit_dte=6, min_obs=150)",2164491.105332369

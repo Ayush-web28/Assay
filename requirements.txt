@@ -1,0 +1,8 @@
+curl_cffi
+pandas
+numpy
+pyarrow
+duckdb
+streamlit
+plotly
+pytest

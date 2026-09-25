@@ -1,0 +1,13 @@
+quarter,params,insample_net_rs
+2023Q4,None,0.0
+2024Q1,None,0.0
+2024Q2,None,0.0
+2024Q3,None,0.0
+2024Q4,None,0.0
+2025Q1,None,0.0
+2025Q2,None,0.0
+2025Q3,None,0.0
+2025Q4,None,0.0
+2026Q1,None,0.0
+2026Q2,"Params(entry_z=3.0, exit_z=0.0, window=120, max_hold=15, min_dte=10, exit_dte=6, min_obs=150)",64235.898539943824
+2026Q3,"Params(entry_z=3.0, exit_z=0.0, window=120, max_hold=15, min_dte=10, exit_dte=6, min_obs=150)",39905.1540516385
