@@ -1,7 +1,6 @@
 # Assay: is the gold spread real, or just noise?
 
-Cross-contract relative-value analytics on MCX gold futures (GOLDM, GOLDTEN, GOLDGUINEA, GOLDPETAL),
-built for Hack in Hills '26 (problem 03).
+Cross-contract relative-value analytics on MCX gold futures (GOLDM, GOLDTEN, GOLDGUINEA, GOLDPETAL).
 
 ## Run
 
